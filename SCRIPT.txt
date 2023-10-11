@@ -1,0 +1,53 @@
+import cityData from './data.js';
+
+const regionLinks = document.querySelectorAll('.region');
+const citiesSection = document.getElementById('cities-section');
+const searchInput = document.getElementById('search');
+const searchButton = document.getElementById('search-button');
+const noResultsDiv = document.querySelector('.no-results');
+
+// Função para exibir cidades e canais
+function displayCities(region) {
+    citiesSection.innerHTML = '';
+    let found = false;
+    for (const city in cityData) {
+        if (cityData[city].estado === region) {
+            const cityDiv = document.createElement('div');
+            cityDiv.textContent = `Cidade: ${city}, Estado: ${cityData[city].estado}, Canal: ${cityData[city].canal}`;
+            citiesSection.appendChild(cityDiv);
+            found = true;
+        }
+    }
+    if (!found) {
+        noResultsDiv.style.display = 'block';
+    } else {
+        noResultsDiv.style.display = 'none';
+    }
+}
+
+// Event listeners
+regionLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        const region = link.textContent;
+        displayCities(region);
+    });
+});
+
+searchButton.addEventListener('click', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    citiesSection.innerHTML = '';
+    let found = false;
+    for (const city in cityData) {
+        if (city.toLowerCase().includes(searchTerm)) {
+            const cityDiv = document.createElement('div');
+            cityDiv.textContent = `Cidade: ${city}, Estado: ${cityData[city].estado}, Canal: ${cityData[city].canal}`;
+            citiesSection.appendChild(cityDiv);
+            found = true;
+        }
+    }
+    if (!found) {
+        noResultsDiv.style.display = 'block';
+    } else {
+        noResultsDiv.style.display = 'none';
+    }
+});

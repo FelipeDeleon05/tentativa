@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canais Abertos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Canais Abertos</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" class="region">Sul</a></li>
+            <li><a href="#" class="region">Sudeste</a></li>
+            <li><a href="#" class="region">Centro Oeste</a></li>
+            <li><a href="#" class="region">Norte</a></li>
+            <li><a href="#" class="region">Nordeste</a></li>
+        </ul>
+    </nav>
+    <section id="cities-section">
+        <div class="no-results">Nenhum resultado encontrado.</div>
+    </section>
+    <footer>
+        <input type="text" id="search" placeholder="Pesquisar cidade">
+        <button id="search-button">Pesquisar</button>
+    </footer>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
